@@ -1,0 +1,14 @@
+services:
+  node:
+    build: .
+    command: npm run start
+    volumes:
+      - .:/app
+    environment:
+      PORT: 3000
+  db:
+    image: mysql:5.7
+    volumes:
+      - ./db-data:/var/lib/mysql
+    ports:
+      - '3306:3306'

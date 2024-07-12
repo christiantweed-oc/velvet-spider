@@ -1,0 +1,19 @@
+services:
+  node:
+    build:
+      target: local_dev
+    command: tail -f /dev/null
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+  db:
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_DATABASE: velvet-spider-config
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: changeme
+    # Uncomment this section for Apple Silicon MacBooks
+    # image: arm64v8/mysql:latest
