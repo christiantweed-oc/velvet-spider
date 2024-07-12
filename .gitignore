@@ -45,3 +45,4 @@ Thumbs.db
 
 docker-compose.override.yml
 db-data
+.env
