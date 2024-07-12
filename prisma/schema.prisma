@@ -13,7 +13,7 @@ datasource db {
 model Client {
   id        String      @id() @default(uuid()) @db.VarChar(36)
   name      String      @db.VarChar(255)
-  slug      String      @db.VarChar(255)
+  slug      String      @unique() @db.VarChar(255)
   email     String      @db.VarChar(36)
   createdAt DateTime    @default(now())
   updatedAt DateTime    @default(now())
@@ -58,7 +58,7 @@ model Column {
 model Status {
   id             String           @id() @default(uuid()) @db.VarChar(36)
   name           String           @db.VarChar(255)
-  key            String           @db.VarChar(255)
+  key            String           @unique @db.VarChar(255)
   createdAt      DateTime         @default(now())
   updatedAt      DateTime         @default(now())
   clientId       String           @db.VarChar(255)
@@ -69,7 +69,7 @@ model Status {
 model Workflow {
   id             String           @id() @default(uuid()) @db.VarChar(36)
   name           String           @db.VarChar(255)
-  key            String           @db.VarChar(255)
+  key            String           @unique() @db.VarChar(255)
   createdAt      DateTime         @default(now())
   updatedAt      DateTime         @default(now())
   clientId       String           @db.VarChar(255)
