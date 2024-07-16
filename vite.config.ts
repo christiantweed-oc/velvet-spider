@@ -11,7 +11,15 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     mainFields: ['module'],
   },
-  plugins: [analog()],
+  plugins: [
+    analog({
+      nitro: {
+        typescript: {
+          generateTsConfig: true,
+        },
+      },
+    }),
+  ],
   test: {
     globals: true,
     environment: 'jsdom',

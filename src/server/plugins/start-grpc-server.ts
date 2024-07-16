@@ -1,10 +1,8 @@
-import { NitroApp } from 'nitropack';
 import { ServerCredentials } from '@grpc/grpc-js';
 
 import server from '../grpc/grpc-server';
 
-//@ts-ignore
-export default defineNitroPlugin((nitroApp: NitroApp) => {
+export default defineNitroPlugin((nitroApp) => {
   server.bindAsync(
     '0.0.0.0:6969',
     ServerCredentials.createInsecure(),
@@ -15,5 +13,13 @@ export default defineNitroPlugin((nitroApp: NitroApp) => {
         console.log(`Server bound on port: ${port}`);
       }
     }
+  );
+
+  nitroApp.hooks.hookOnce('close', () =>
+    server.tryShutdown((err) => {
+      if (err) {
+        console.error(err);
+      }
+    })
   );
 });
