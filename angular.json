@@ -33,12 +33,14 @@
           "defaultConfiguration": "development",
           "options": {
             "buildTarget": "my-app:build",
-            "port": 5173
+            "port": 5173,
+            "host": "0.0.0.0"
           },
           "configurations": {
             "development": {
               "buildTarget": "my-app:build:development",
-              "hmr": true
+              "hmr": true,
+              "disableHostCheck": true
             },
             "production": {
               "buildTarget": "my-app:build:production"
