@@ -227,3 +227,13 @@ async function main() {
   //maybe define a second server via vite via plugin
   //if possible look into creating a package in analog
 }
+
+main()
+  .then(async () => {
+    await prisma.$disconnect();
+  })
+  .catch(async (e) => {
+    console.error(e);
+    await prisma.$disconnect();
+    process.exit(1);
+  });

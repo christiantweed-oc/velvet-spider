@@ -2,6 +2,9 @@
   "name": "velvet-spider",
   "version": "0.0.0",
   "type": "module",
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "engines": {
     "node": ">=18.19.1"
   },
@@ -52,9 +55,12 @@
     "@angular-devkit/build-angular": "^18.0.0",
     "@angular/cli": "^18.0.0",
     "@angular/compiler-cli": "^18.0.0",
+    "@types/node": "^20.14.11",
     "jsdom": "^22.0.0",
     "prisma": "^5.16.2",
+    "ts-node": "^10.9.2",
     "ts-proto": "^1.181.1",
+    "tsx": "^4.16.2",
     "typescript": "~5.4.2",
     "vite": "~5.2.0",
     "vite-tsconfig-paths": "^4.2.0",
