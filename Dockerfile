@@ -21,4 +21,3 @@ ENV NODE_ENV=development
 RUN npm ci --include=optional && \
     npm cache clean --force
 
-#TODO: Figure out how to run the server in the docker container

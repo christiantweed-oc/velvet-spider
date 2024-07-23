@@ -11,6 +11,9 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     mainFields: ['module'],
   },
+  ssr: {
+    noExternal: ['@analogjs/trpc', '@trpc/server'],
+  },
   plugins: [
     analog({
       nitro: {
