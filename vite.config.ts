@@ -14,15 +14,7 @@ export default defineConfig(({ mode }) => ({
   ssr: {
     noExternal: ['@analogjs/trpc', '@trpc/server'],
   },
-  plugins: [
-    analog({
-      nitro: {
-        typescript: {
-          generateTsConfig: true,
-        },
-      },
-    }),
-  ],
+  plugins: [analog()],
   test: {
     globals: true,
     environment: 'jsdom',
