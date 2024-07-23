@@ -14,7 +14,13 @@ export default defineConfig(({ mode }) => ({
   ssr: {
     noExternal: ['@analogjs/trpc', '@trpc/server'],
   },
-  plugins: [analog()],
+  plugins: [
+    analog({
+      vite: {
+        inlineStylesExtension: 'scss',
+      },
+    }),
+  ],
   test: {
     globals: true,
     environment: 'jsdom',

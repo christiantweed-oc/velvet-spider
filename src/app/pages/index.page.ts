@@ -1,28 +1,18 @@
+import { injectLoad } from '@analogjs/router';
 import { Component, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { MatTab, MatTabGroup } from '@angular/material/tabs';
+import { load } from './index.server';
 
 @Component({
+  imports: [MatTab, MatTabGroup],
   selector: 'app-home',
   standalone: true,
-  template: `
-    <div>
-      <a href="https://analogjs.org/" target="_blank">
-        <img alt="Analog Logo" class="logo analog" src="/analog.svg" />
-      </a>
-    </div>
-
-    <h2>Analog</h2>
-
-    <h3>The fullstack meta-framework for Angular!</h3>
-
-    <div class="card">
-      <button type="button" (click)="increment()">Count {{ count() }}</button>
-    </div>
-
-    <p class="read-the-docs">
-      For guides on how to customize this project, visit the
-      <a href="https://analogjs.org" target="_blank">Analog documentation</a>
-    </p>
-  `,
+  template: ` <mat-tab-group>
+    <mat-tab label="First"> Content 1 </mat-tab>
+    <mat-tab label="Second"> Content 2 </mat-tab>
+    <mat-tab label="Third"> Content 3 </mat-tab>
+  </mat-tab-group>`,
   styles: [
     `
       .logo {
@@ -38,6 +28,7 @@ import { Component, signal } from '@angular/core';
   ],
 })
 export default class HomeComponent {
+  data = toSignal(injectLoad<typeof load>(), { requireSync: true });
   count = signal(0);
 
   increment() {

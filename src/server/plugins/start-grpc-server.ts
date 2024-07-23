@@ -14,7 +14,6 @@ export default defineNitroPlugin((nitroApp) => {
       }
     }
   );
-
   nitroApp.hooks.hookOnce('close', () =>
     server.tryShutdown((err) => {
       if (err) {
