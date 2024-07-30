@@ -8,6 +8,8 @@ import { renderApplication } from '@angular/platform-server';
 import { config } from './app/app.config.server';
 import { AppComponent } from './app/app.component';
 
+import '../dist/.nitro/types/nitro-imports.d.ts';
+
 if (import.meta.env.PROD) {
   enableProdMode();
 }

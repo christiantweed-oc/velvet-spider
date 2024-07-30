@@ -11,7 +11,16 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     mainFields: ['module'],
   },
-  plugins: [analog()],
+  ssr: {
+    noExternal: ['@analogjs/trpc', '@trpc/server'],
+  },
+  plugins: [
+    analog({
+      vite: {
+        inlineStylesExtension: 'scss',
+      },
+    }),
+  ],
   test: {
     globals: true,
     environment: 'jsdom',

@@ -2,6 +2,9 @@
   "name": "velvet-spider",
   "version": "0.0.0",
   "type": "module",
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "engines": {
     "node": ">=18.19.1"
   },
@@ -11,22 +14,29 @@
     "start": "npm run dev",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:proto": "proto-loader-gen-types --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=src/server/grpc/generated src/server/grpc/proto/*.proto"
   },
   "private": true,
   "dependencies": {
     "@analogjs/content": "^1.6.1",
     "@analogjs/router": "^1.6.1",
+    "@analogjs/trpc": "^0.2.45",
     "@angular/animations": "^18.0.0",
+    "@angular/cdk": "^18.1.1",
     "@angular/common": "^18.0.0",
     "@angular/compiler": "^18.0.0",
     "@angular/core": "^18.0.0",
     "@angular/forms": "^18.0.0",
+    "@angular/material": "^18.1.1",
     "@angular/platform-browser": "^18.0.0",
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/platform-server": "^18.0.0",
     "@angular/router": "^18.0.0",
+    "@grpc/grpc-js": "^1.11.0",
     "@prisma/client": "^5.16.2",
+    "@trpc/client": "^10.45.2",
+    "@trpc/server": "^10.45.2",
     "front-matter": "^4.0.2",
     "marked": "^5.0.2",
     "marked-gfm-heading-id": "^3.1.0",
@@ -35,6 +45,7 @@
     "prismjs": "^1.29.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "zod": "^3.23.8",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
@@ -44,8 +55,12 @@
     "@angular-devkit/build-angular": "^18.0.0",
     "@angular/cli": "^18.0.0",
     "@angular/compiler-cli": "^18.0.0",
+    "@types/node": "^20.14.11",
     "jsdom": "^22.0.0",
     "prisma": "^5.16.2",
+    "ts-node": "^10.9.2",
+    "ts-proto": "^1.181.1",
+    "tsx": "^4.16.2",
     "typescript": "~5.4.2",
     "vite": "~5.2.0",
     "vite-tsconfig-paths": "^4.2.0",
